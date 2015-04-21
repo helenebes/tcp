@@ -7,11 +7,14 @@ package bank.business.domain;
 public class Transfer extends Transaction {
 
 	private CurrentAccount destinationAccount;
+	
+	private String state;
 
 	public Transfer(OperationLocation location, CurrentAccount account,
-			CurrentAccount destinationAccount, double amount) {
+			CurrentAccount destinationAccount, double amount, String state) {
 		super(location, account, amount);
 		this.destinationAccount = destinationAccount;
+		this.state = state;
 	}
 
 	/**
@@ -19,6 +22,10 @@ public class Transfer extends Transaction {
 	 */
 	public CurrentAccount getDestinationAccount() {
 		return destinationAccount;
+	}
+	
+	public String getState() {
+		return state;
 	}
 
 }

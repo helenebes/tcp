@@ -10,6 +10,7 @@ import bank.ui.text.command.EmployeeLoginCommand;
 import bank.ui.text.command.LogoutCommand;
 import bank.ui.text.command.StatementCommand;
 import bank.ui.text.command.TransferCommand;
+import bank.ui.text.command.TransferManagementCommand;
 import bank.ui.text.command.WithdrawalCommand;
 
 /**
@@ -26,6 +27,7 @@ public class BranchInterface extends BankTextInterface {
 				accountManagementService));
 		this.addAction("C", new CreateAccountCommand(this,
 				accountManagementService));
+		this.addAction("M", new TransferManagementCommand(this,accountManagementService));
 		this.addAction("B", new BalanceCommand(this, accountOperationService));
 		this.addAction("S", new StatementCommand(this, accountOperationService));
 		this.addAction("D", new DepositCommand(this, accountOperationService));

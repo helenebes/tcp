@@ -3,10 +3,13 @@
  */
 package bank.data;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
@@ -21,6 +24,7 @@ import bank.business.domain.CurrentAccountId;
 import bank.business.domain.Employee;
 import bank.business.domain.OperationLocation;
 import bank.business.domain.Transaction;
+import bank.business.domain.Transfer;
 
 /**
  * @author Ingrid Nunes
@@ -50,6 +54,22 @@ public class Database {
 	public Collection<CurrentAccount> getAllCurrentAccounts() {
 		return this.currentAccounts.values();
 	}
+	
+	public List<Transfer> getAllTransfersPendentes() {
+		List<Transfer> listTransfers = new ArrayList<>();
+		Iterator iterator = this.currentAccounts.values().iterator();
+		while (iterator.hasNext()) {
+			List<Transfer> transfers = ((CurrentAccount) iterator.next()).getTransfers();
+			Iterator iterator2 = transfers.iterator();
+				while (iterator2.hasNext()) {
+					listTransfers.add((Transfer) iterator2.next());
+					//System.out.println(((Transfer) iterator2.next()).getDestinationAccount().getClient().getCpf());
+					//System.out.println(listTransfers.size());
+				}					
+		}
+		return listTransfers;
+	}
+
 
 	public Collection<Employee> getAllEmployees() {
 		return this.employees.values();

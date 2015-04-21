@@ -114,11 +114,13 @@ public class CurrentAccount implements Credentials {
 	public Transfer transfer(OperationLocation location,
 			CurrentAccount destinationAccount, double amount)
 			throws BusinessException {
+		
+		//TODO with if >5000 and <5000 conditions
 		withdrawalAmount(amount);
 		destinationAccount.depositAmount(amount);
 
 		Transfer transfer = new Transfer(location, this, destinationAccount,
-				amount);
+				amount, "PENDENTE");
 		this.transfers.add(transfer);
 		destinationAccount.transfers.add(transfer);
 

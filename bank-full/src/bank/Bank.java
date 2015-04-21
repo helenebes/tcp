@@ -16,7 +16,7 @@ import bank.ui.BankInterface;
 
 /**
  * @author Ingrid Nunes
- * test
+ * 
  */
 public abstract class Bank {
 
@@ -31,6 +31,7 @@ public abstract class Bank {
 		if (args != null && args.length > 0 && TEXT_FLAG.equals(args[0])) {
 			bank = new BankText();
 		} else {
+			//bank = new BankText();
 			bank = new BankGraphic();
 		}
 		bank.showUI();
