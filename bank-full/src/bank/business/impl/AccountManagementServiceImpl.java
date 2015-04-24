@@ -3,8 +3,10 @@
  */
 package bank.business.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Iterator;
 
 import bank.business.AccountManagementService;
 import bank.business.BusinessException;
@@ -31,9 +33,20 @@ public class AccountManagementServiceImpl implements AccountManagementService {
 		this.random = new RandomString(8);
 	}
 
-	public List<Transfer> getAllTranfers() throws BusinessException{
-		System.out.println(database.getAllTransfersPendentes().size());
-		return database.getAllTransfersPendentes();
+	public List<Transfer> getAllTranfersToCheck() throws BusinessException {
+		List<Transfer> listTransfersToCheck = new ArrayList<>();
+		Iterator<CurrentAccount> accountIterator = database.getAllCurrentAccounts().iterator();
+		while (accountIterator.hasNext()){
+			List<Transfer> transfers = ((CurrentAccount) accountIterator.next()).getTransfers();
+			Iterator<Transfer> iteratorTranfer = transfers.iterator();
+			while (iteratorTranfer.hasNext()) {
+				Transfer transfer = iteratorTranfer.next();
+				if (transfer.getState().equals("PENDENTE")) {
+					listTransfersToCheck.add((Transfer) transfer);
+				}
+			}
+		}
+		return listTransfersToCheck;
 	}
 	
 	public Transfer authorizeTransfer(Transfer transfer) throws BusinessException {

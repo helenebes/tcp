@@ -23,7 +23,11 @@ public interface AccountManagementService {
 	public Employee login(String username, String password)
 			throws BusinessException;
 	
-	public List<Transfer> getAllTranfers()
+	public List<Transfer> getAllTranfersToCheck()
 			throws BusinessException;
+	
+	public Transfer authorizeTransfer(Transfer transfer) throws BusinessException;
+	
+	public Transfer cancelTransfer(Transfer transfer) throws BusinessException;
 
 }

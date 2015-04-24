@@ -116,7 +116,8 @@ public class CurrentAccount implements Credentials {
 			throws BusinessException {
 		Transfer transfer;
 		withdrawalAmount(amount);
-		if (amount >= 5000) {
+		//I put 5 for the testing, but it has to be 5000
+		if (amount >= 5) {
 			transfer = new Transfer(location, this, destinationAccount,
 					amount, "PENDENTE");			
 		}
@@ -134,6 +135,7 @@ public class CurrentAccount implements Credentials {
 			throws BusinessException {
 		depositAmount(transfer.getAmount());
 		transfer.setCanceledState();
+		System.out.println(transfer.getState());
 		return transfer;
 	}
 	
@@ -142,6 +144,7 @@ public class CurrentAccount implements Credentials {
 		transfer.getDestinationAccount().depositAmount(transfer.getAmount());
 		transfer.setFinishedState();
 		transfer.getDestinationAccount().transfers.add(transfer);
+		System.out.println(transfer.getState());
 		return transfer;
 	}
 
