@@ -35,6 +35,14 @@ public class AccountManagementServiceImpl implements AccountManagementService {
 		System.out.println(database.getAllTransfersPendentes().size());
 		return database.getAllTransfersPendentes();
 	}
+	
+	public Transfer authorizeTransfer(Transfer transfer) throws BusinessException {
+		return transfer.getAccount().transferAuthorized(transfer);
+	}
+	
+	public Transfer cancelTransfer(Transfer transfer) throws BusinessException {
+		return transfer.getAccount().transferCanceled(transfer);
+	}
 	@Override
 	public CurrentAccount createCurrentAccount(long branch, String name,
 			String lastName, int cpf, Date birthday, double balance)

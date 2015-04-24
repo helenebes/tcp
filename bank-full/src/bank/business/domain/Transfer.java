@@ -10,6 +10,14 @@ public class Transfer extends Transaction {
 	
 	private String state;
 
+	public void setFinishedState() {
+		this.state = "FINALIZADA";
+	}
+	
+	public void setCanceledState() {
+		this.state = "CANCELADA";
+	}
+
 	public Transfer(OperationLocation location, CurrentAccount account,
 			CurrentAccount destinationAccount, double amount, String state) {
 		super(location, account, amount);

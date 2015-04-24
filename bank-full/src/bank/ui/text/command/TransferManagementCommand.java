@@ -31,13 +31,6 @@ public class TransferManagementCommand extends Command {
 		//TODO
 	}
 
-	private void authorizeTransfer(Transfer transfer) {
-		//TODO
-	}
-	
-	private void forbidTransfer(Transfer transfer) {
-		//TODO
-	}
 	
 	@Override
 	public void execute() throws Exception {

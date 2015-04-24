@@ -68,14 +68,6 @@ public class TransferManagementAction extends BankAction {
 	private void printTranferInfo(Transfer transfer) {
 		//TODO
 	}
-
-	private void authorizeTransfer(Transfer transfer) {
-		//TODO
-	}
-	
-	private void forbidTransfer(Transfer transfer) {
-		//TODO
-	}
 	
 	@Override
 	public void execute() {

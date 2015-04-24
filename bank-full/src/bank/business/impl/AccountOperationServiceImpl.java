@@ -146,12 +146,11 @@ public class AccountOperationServiceImpl implements AccountOperationService {
 	public Transfer transfer(long operationLocation, long srcBranch,
 			long srcAccountNumber, long dstBranch, long dstAccountNumber,
 			double amount) throws BusinessException {
-		//TODO 
+		Transfer transfer;
 		CurrentAccount source = readCurrentAccount(srcBranch, srcAccountNumber);
 		CurrentAccount destination = readCurrentAccount(dstBranch,
 				dstAccountNumber);
-		Transfer transfer = source.transfer(
-				getOperationLocation(operationLocation), destination, amount);
+		transfer = source.transfer(getOperationLocation(operationLocation), destination, amount);	
 		return transfer;
 	}
 

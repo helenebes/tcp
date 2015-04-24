@@ -114,16 +114,34 @@ public class CurrentAccount implements Credentials {
 	public Transfer transfer(OperationLocation location,
 			CurrentAccount destinationAccount, double amount)
 			throws BusinessException {
-		
-		//TODO with if >5000 and <5000 conditions
+		Transfer transfer;
 		withdrawalAmount(amount);
-		destinationAccount.depositAmount(amount);
-
-		Transfer transfer = new Transfer(location, this, destinationAccount,
-				amount, "PENDENTE");
+		if (amount >= 5000) {
+			transfer = new Transfer(location, this, destinationAccount,
+					amount, "PENDENTE");			
+		}
+		else {
+			destinationAccount.depositAmount(amount);
+			transfer = new Transfer(location, this, destinationAccount,
+						amount, "FINALIZADA");
+			destinationAccount.transfers.add(transfer);			
+		}
 		this.transfers.add(transfer);
-		destinationAccount.transfers.add(transfer);
-
+		return transfer;
+	}
+	
+	public Transfer transferCanceled(Transfer transfer)
+			throws BusinessException {
+		depositAmount(transfer.getAmount());
+		transfer.setCanceledState();
+		return transfer;
+	}
+	
+	public Transfer transferAuthorized(Transfer transfer)
+			throws BusinessException {
+		transfer.getDestinationAccount().depositAmount(transfer.getAmount());
+		transfer.setFinishedState();
+		transfer.getDestinationAccount().transfers.add(transfer);
 		return transfer;
 	}
 
