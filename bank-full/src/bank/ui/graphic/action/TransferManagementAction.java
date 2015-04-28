@@ -46,8 +46,8 @@ public class TransferManagementAction extends BankAction {
 	
 	@Override
 	public void execute() throws BusinessException {
-		//List<Transfer> transfers = accountManagementService.getAllTranfersToCheck();
-		List<Transfer> transfers = new ArrayList<Transfer>();
+		List<Transfer> transfers = accountManagementService.getAllTranfersToCheck();
+		// Changed List<Transfer> transfers = new ArrayList<Transfer>(); to one's above in order to get all transfers to check
 		if (transfers.size() == 0) {
 			JOptionPane.showMessageDialog(null, textManager.getText("message.noTransfer"), "Aviso", JOptionPane.WARNING_MESSAGE);		
 		} else {

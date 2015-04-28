@@ -116,8 +116,8 @@ public class CurrentAccount implements Credentials {
 			throws BusinessException {
 		Transfer transfer;
 		withdrawalAmount(amount);
-		//I put 5 for the testing, but it has to be 5000
-		if (amount >= 5) {
+		//I put 5 for the testing, but it has to be 5000 => CORRECTED
+		if (amount >= 5000) {
 			transfer = new Transfer(location, this, destinationAccount,
 					amount, "PENDENTE");			
 		}
