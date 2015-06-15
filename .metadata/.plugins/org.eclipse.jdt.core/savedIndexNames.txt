@@ -1,0 +1,5 @@
+INDEX VERSION 1.127+C:\Users\Júnior\Documents\GitHub Projects\tcp\.metadata\.plugins\org.eclipse.jdt.core
+1679227204.index
+2952186289.index
+1048789675.index
+1873162143.index
