@@ -6,3 +6,5 @@
 1434381657332	Rename package 'guInterface'
 1434381698448	Rename package 'contest.ui.actions'
 1434381720934	Rename package 'contest.ui.graphic.actions'
+1434429583579	Rename type 'DeptBossUInterface'
+1434429597524	Rename type 'DeptSecretaryINAUInterface'
