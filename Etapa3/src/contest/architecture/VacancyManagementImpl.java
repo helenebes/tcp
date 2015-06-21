@@ -1,7 +1,5 @@
 package contest.architecture;
 
-import java.util.List;
-
 import contest.database.Database;
 import contest.domain.User;
 import contest.domain.Vacancy;
@@ -10,7 +8,6 @@ import contest.ui.graphic.action.BusinessException;
 public class VacancyManagementImpl implements VacancyManagement {
 	
 	private Database database;
-	private List<Vacancy> vacancies;
 	
 	public VacancyManagementImpl(Database database) {
 		this.database = database;

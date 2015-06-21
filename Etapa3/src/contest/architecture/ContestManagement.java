@@ -7,11 +7,11 @@ import contest.domain.Vacancy;
 
 public interface ContestManagement {
 
-	public void createConcurso(String title, List<String> field);
+	public Contest createContest(String title, List<String> field);
 	
 	public void associate(Vacancy vacancy, Contest contest);
 	
-	public void updateConcursoData(Object data, Contest contest);
+	public void updateContestData(Object data, Contest contest);
 	
-	public void closeConcurso(Contest contest);
+	public void closeContest(Contest contest);
 }

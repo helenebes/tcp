@@ -61,7 +61,6 @@ public class CreateVacancyAction extends SystemAction {
 		profile = new JComboBox<>(profileType);
 		subpanel.add(new JLabel("profile :"));
 		subpanel.add(profile);
-		//profile.addItemListener(this);
 
 		panel.add(subpanel, BorderLayout.CENTER);
 
