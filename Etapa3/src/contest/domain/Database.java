@@ -11,7 +11,7 @@ public class Database {
 	private ExaminationBoard examinationBoard;
 	private List<Candidate> candidates;
 
-	public void Database() {
+	public Database() {
 		
 	}
 	
