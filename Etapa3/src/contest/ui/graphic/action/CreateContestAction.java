@@ -12,6 +12,7 @@ import java.util.List;
 import javax.swing.Action;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -43,6 +44,7 @@ public class CreateContestAction extends SystemAction {
 
 	private ContestManagementImpl contestManagementImpl;
 	private JTextField title;
+	private JComboBox<String> workRegime;
 	private JTextField field1;
 	private JTextField field2;
 	private JTextField field3;
@@ -60,6 +62,11 @@ public class CreateContestAction extends SystemAction {
 		title.setColumns(10);
 		subpanel.add(new JLabel("title"));
 		subpanel.add(title);
+		
+		String[] workRegimeType = new String[]{"20H", "40H", "DE"};
+		workRegime = new JComboBox<>(workRegimeType);
+		subpanel.add(new JLabel("workRegime :"));
+		subpanel.add(workRegime);
 
 		this.field1 = new JTextField();
 		field1.setColumns(10);
@@ -109,11 +116,12 @@ public class CreateContestAction extends SystemAction {
 			if(!field3.getText().isEmpty())
 				fieldList.add(field3.getText());
 
-			Contest contest = contestManagementImpl.createContest(title.getText(), fieldList);
+			Contest contest = contestManagementImpl.createContest(title.getText(), fieldList, workRegime.getSelectedItem().toString());
 			
 			StringBuffer sb = new StringBuffer();
 			sb.append("successful operation").append("\n");
 			sb.append("title : ").append(contest.getContestTitle()).append("\n");
+			sb.append("workRegime : ").append(contest.getWorkRegime()).append("\n");
 			for(String field : contest.getFields()) {
 				sb.append("field : ").append(field).append("\n");
 			}

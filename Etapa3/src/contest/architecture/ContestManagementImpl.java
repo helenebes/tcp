@@ -14,12 +14,13 @@ public class ContestManagementImpl implements ContestManagement {
 		this.database = database;
 	}
 	
-	public Contest createContest(String title, List<String> fields) {
-		return new Contest(title, fields);
+	public Contest createContest(String title, List<String> fields, String workRegime) {
+		return new Contest(title, fields, workRegime);
 	}
 	
 	public void associate(Vacancy vacancy, Contest contest) {
 		vacancy.addContest(contest);
+		contest.addVacancy(vacancy);
 	}
 	
 	public void updateContestData(Object data, Contest contest) {

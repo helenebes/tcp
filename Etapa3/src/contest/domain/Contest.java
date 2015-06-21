@@ -1,5 +1,6 @@
 package contest.domain;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -16,9 +17,16 @@ public class Contest {
 	private List<Candidate> result;
 	private List<Exam> exams;
 	
-	public Contest(String contestTitle, List<String> fields) {
+	public Contest(String contestTitle, List<String> fields, String workRegime) {
 		this.contestTitle = contestTitle;
 		this.fields = fields;
+		this.workRegime = workRegime;
+		this.startDate = new Date();
+		this.statusLog = new ArrayList<Status>();
+		this.statusLog.add(new WithoutProtocol("em preparacão"));
+		this.result = new ArrayList<Candidate>();
+		this.exams = new ArrayList<Exam>();
+		this.vacancies = new ArrayList<Vacancy>();
 	}
 	
 	public String getContestTitle() {
@@ -82,7 +90,7 @@ public class Contest {
 	}
 	
 	public void addVacancy(Vacancy vacancy) {
-		
+		this.vacancies.add(vacancy);
 	}
 
 	public void setContestStatus(Status status) {

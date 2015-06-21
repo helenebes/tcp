@@ -79,7 +79,7 @@ public class Database {
 		Vacancy vacancy = new Vacancy("titular", user1);
 		save(vacancy);
 		
-		Contest contest1 = new Contest("title", new ArrayList<String>());
+		Contest contest1 = new Contest("title", new ArrayList<String>(), "20H");
 		save(contest1);
 	}
 }

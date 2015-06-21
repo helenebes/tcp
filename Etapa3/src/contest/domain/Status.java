@@ -6,6 +6,10 @@ public abstract class Status {
 	private String justification;
 	private String status;
 	
+	public Status(String status) {
+		this.status = status;
+	}
+	
 	public boolean isRejected() {
 		if(status.contains("reject"))
 			return true;
