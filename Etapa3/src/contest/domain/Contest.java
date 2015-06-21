@@ -16,9 +16,13 @@ public class Contest {
 	private List<Candidate> result;
 	private List<Exam> exams;
 	
-	public void Contest(String contestTitle, List<String> fields) {
+	public Contest(String contestTitle, List<String> fields) {
 		this.contestTitle = contestTitle;
 		this.fields = fields;
+	}
+	
+	public String getContestTitle() {
+		return contestTitle;
 	}
 	
 	public int getVacancyAmount() {

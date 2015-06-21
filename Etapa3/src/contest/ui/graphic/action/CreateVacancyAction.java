@@ -59,6 +59,7 @@ public class CreateVacancyAction extends SystemAction {
 
 		String[] profileType = new String[]{"titular", "adjunct", "assistente", "auxiliarky"};
 		profile = new JComboBox<>(profileType);
+		subpanel.add(new JLabel("profile :"));
 		subpanel.add(profile);
 		//profile.addItemListener(this);
 
@@ -76,7 +77,7 @@ public class CreateVacancyAction extends SystemAction {
 		panel.add(subpanel, BorderLayout.SOUTH);
 
 		this.dialog = GUIUtils.INSTANCE.createDialog(contestInterface.getFrame(),
-				"action.transfer", panel);
+				"creation vacancy", panel);
 		this.dialog.setVisible(true);
 	}
 	

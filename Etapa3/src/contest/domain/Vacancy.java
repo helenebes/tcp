@@ -1,6 +1,5 @@
 package contest.domain;
 
-import contest.ui.graphic.action.BusinessException;
 
 public class Vacancy {
 
@@ -33,5 +32,9 @@ public class Vacancy {
 	
 	public Contest getContest() {
 		return contest;
+	}
+	
+	public void addContest(Contest contest) {
+		this.contest = contest;
 	}
 }

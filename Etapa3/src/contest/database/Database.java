@@ -78,5 +78,8 @@ public class Database {
 		
 		Vacancy vacancy = new Vacancy("titular", user1);
 		save(vacancy);
+		
+		Contest contest1 = new Contest("title", new ArrayList<String>());
+		save(contest1);
 	}
 }

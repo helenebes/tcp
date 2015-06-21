@@ -117,13 +117,15 @@ public class UserLoginAction extends SystemAction{
 	public void warnRejection() {		
 		List<Contest> contestList = userManagement.getAllContests();
 		for(Contest contest : contestList) {
-			Iterator<Status> statusIterator = contest.getStatusLog().iterator();
-			while(statusIterator.hasNext()) {
-				Status status = statusIterator.next();
-				if(status.getStatus().contains("reject")) {
-					GUIUtils.INSTANCE.showMessage(contestInterface.getFrame(),
-							"rejection : " + status.getStatus(), JOptionPane.INFORMATION_MESSAGE);
-					return;
+			if(contest.getStatusLog() != null) {
+					Iterator<Status> statusIterator = contest.getStatusLog().iterator();
+				while(statusIterator.hasNext()) {
+					Status status = statusIterator.next();
+					if(status.getStatus().contains("reject")) {
+						GUIUtils.INSTANCE.showMessage(contestInterface.getFrame(),
+								"rejection : " + status.getStatus(), JOptionPane.INFORMATION_MESSAGE);
+						return;
+					}
 				}
 			}
 		}

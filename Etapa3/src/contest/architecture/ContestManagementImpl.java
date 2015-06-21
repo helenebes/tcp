@@ -21,7 +21,7 @@ public class ContestManagementImpl implements ContestManagement {
 	}
 	
 	public void associate(Vacancy vacancy, Contest contest) {
-		
+		vacancy.addContest(contest);
 	}
 	
 	public void updateConcursoData(Object data, Contest contest) {
@@ -46,5 +46,13 @@ public class ContestManagementImpl implements ContestManagement {
 	
 	private boolean isApprovedByColegiado() {
 		return false;
+	}
+	
+	public List<Contest> getAllContests() {
+		return database.getContests();
+	}
+	
+	public List<Vacancy> getAllVacancies() {
+		return database.getVacancies();
 	}
 }

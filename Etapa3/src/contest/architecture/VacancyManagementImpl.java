@@ -3,7 +3,6 @@ package contest.architecture;
 import java.util.List;
 
 import contest.database.Database;
-import contest.domain.Profile;
 import contest.domain.User;
 import contest.domain.Vacancy;
 import contest.ui.graphic.action.BusinessException;
