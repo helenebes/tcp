@@ -2,11 +2,11 @@ package contest.architecture;
 
 import java.util.List;
 
+import contest.database.Database;
 import contest.domain.Contest;
-import contest.domain.Database;
 import contest.domain.Vacancy;
 
-public class ContestManagementImpl {
+public class ContestManagementImpl implements ContestManagement {
 
 	private Database database;
 	

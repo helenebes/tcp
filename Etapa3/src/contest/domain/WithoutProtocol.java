@@ -1,6 +1,6 @@
 package contest.domain;
 
-public class WithoutProtocol {
+public class WithoutProtocol extends Status {
 	
 	private enum type {};
 

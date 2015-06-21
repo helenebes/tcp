@@ -1,5 +1,17 @@
 package contest.ui.graphic.action;
 
-public class CreateContestAction {
+import java.util.List;
 
+public class CreateContestAction extends SystemAction{
+
+	private String title;
+	private List<String> fieldList;
+	
+	public void execute() {
+		
+	}
+	
+	public void createContest() {
+		
+	}
 }

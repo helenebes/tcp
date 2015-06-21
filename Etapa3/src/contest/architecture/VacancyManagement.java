@@ -4,7 +4,5 @@ import contest.domain.Profile;
 
 public interface VacancyManagement {
 
-	public static void createVacancy(Profile profile){
-		
-	}
+	public void createVacancy(Profile profile);
 }

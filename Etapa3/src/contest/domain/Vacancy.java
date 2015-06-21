@@ -7,7 +7,7 @@ public class Vacancy {
 	private Contest contest;
 	
 	public void Vacancy(String profile) {
-
+		
 	}
 	
 	public Profile getProfile() {

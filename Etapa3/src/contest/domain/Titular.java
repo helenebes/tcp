@@ -1,5 +1,5 @@
 package contest.domain;
 
-public class Titular {
+public class Titular extends Profile {
 
 }

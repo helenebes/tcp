@@ -1,5 +1,8 @@
 package contest.ui.graphic.action;
 
-public class LogoutAction {
+public class LogoutAction extends SystemAction {
 
+	public void execute() {
+		
+	}
 }

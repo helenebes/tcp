@@ -1,5 +1,8 @@
 package contest.ui.graphic.action;
 
-public interface SystemAction {
+public class SystemAction {
 
+	public void execute() {
+		
+	}
 }

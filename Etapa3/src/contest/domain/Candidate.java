@@ -1,6 +1,6 @@
 package contest.domain;
 
-public class Candidate {
+public class Candidate extends Person {
 
 	private int id;
 	private String email;
