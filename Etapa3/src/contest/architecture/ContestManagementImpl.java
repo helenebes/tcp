@@ -5,6 +5,7 @@ import java.util.List;
 import contest.database.Database;
 import contest.domain.Contest;
 import contest.domain.Vacancy;
+import contest.domain.WithoutProtocol;
 
 public class ContestManagementImpl implements ContestManagement {
 
@@ -15,7 +16,9 @@ public class ContestManagementImpl implements ContestManagement {
 	}
 	
 	public Contest createContest(String title, List<String> fields, String workRegime) {
-		return new Contest(title, fields, workRegime);
+		Contest contest = new Contest(title, fields, workRegime);
+		database.save(contest);
+		return contest;
 	}
 	
 	public void associate(Vacancy vacancy, Contest contest) {
@@ -28,7 +31,7 @@ public class ContestManagementImpl implements ContestManagement {
 	}
 	
 	public void closeContest(Contest contest){
-		
+		contest.setContestStatus(new WithoutProtocol("closed"));
 	}
 	
 	private boolean isFieldAvailable(List<String> fields) {
