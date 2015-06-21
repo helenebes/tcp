@@ -22,7 +22,7 @@ public class LogoutAction extends SystemAction {
 
 	public void execute() {
 		int answer = JOptionPane.showConfirmDialog(contestInterface.getFrame()
-				.getContentPane(), "cancel", contestInterface.getFrame()
+				.getContentPane(), "Are you sure to want to disconnect ?", contestInterface.getFrame()
 				.getTitle(), JOptionPane.WARNING_MESSAGE);
 
 		if (JOptionPane.YES_OPTION == answer) {

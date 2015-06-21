@@ -1,12 +1,14 @@
 package contest.domain;
 
-public class Status {
+public abstract class Status {
 	
 	//Add not in the class diagramm
 	private String justification;
 	private String status;
 	
-	private boolean isRejected() {
+	public boolean isRejected() {
+		if(status.contains("reject"))
+			return true;
 		return false;
 	}
 	

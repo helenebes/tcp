@@ -1,7 +1,11 @@
 package contest.architecture;
 
+import java.util.List;
+
 import contest.database.Database;
+import contest.domain.Contest;
 import contest.domain.User;
+import contest.domain.Vacancy;
 import contest.ui.graphic.action.BusinessException;
 
 public class UserManagementImpl {
@@ -24,5 +28,13 @@ public class UserManagementImpl {
 			}
 
 			return user;
+	}
+	
+	public List<Vacancy> getAllVacancies() {
+		return database.getVacancies();
+	}
+	
+	public List<Contest> getAllContests() {
+		return database.getContests();
 	}
 }

@@ -49,8 +49,6 @@ public abstract class SystemGraphicInterface extends SystemInterface {
 		this.menu.add(mainMenu);
 		this.panel = new JPanel(getLayoutManager());
 		panel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-		loginAction();
-		logoutAction();
 	}
 	
 	protected void addAction(SystemAction action) {
@@ -65,21 +63,7 @@ public abstract class SystemGraphicInterface extends SystemInterface {
 	protected void addPanelAction(SystemAction action) {
 		panel.add(new JButton(action));
 		addAction(action);
-	}
-	
-	
-	public void loginAction() {
-		SystemAction loginAction = new UserLoginAction(this, userManagement);
-		this.addMenuAction(loginAction);
-	}
-	
-	public void logoutAction() {
-		LogoutAction logoutAction = new LogoutAction(this);
-		ExitAction exitAction = new ExitAction(this, logoutAction);
-		this.setExitAction(exitAction);
-		addMenuAction(logoutAction);
-		addMenuAction(exitAction);
-	}
+	}	
 	
 	public void createAndShowUI() {
 		frame.setTitle("System");

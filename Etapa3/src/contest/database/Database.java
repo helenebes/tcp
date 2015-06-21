@@ -11,6 +11,7 @@ import contest.domain.Exam;
 import contest.domain.ExaminationBoard;
 import contest.domain.User;
 import contest.domain.Vacancy;
+import contest.ui.graphic.action.BusinessException;
 
 public class Database {
 	
@@ -22,7 +23,7 @@ public class Database {
 	private final List<Candidate> candidates;
 	private final Map<String, User> users;
 
-	public Database() {
+	public Database() throws BusinessException {
 		this.users = new HashMap<>();
 		this.vacancies = new ArrayList<>();
 		this.contests = new ArrayList<>();
@@ -32,19 +33,19 @@ public class Database {
 	}
 	
 	public void save(Vacancy vacancy) {
-		
+		this.vacancies.add(vacancy);
 	}
 	
 	public void save(Contest contest) {
-		
+		this.contests.add(contest);
 	}
 	
 	public void save(Exam exam) {
-		
+		this.exams.add(exam);
 	}
 	
 	public void save(ExaminationBoard examinationBoard) {
-		
+		this.examinationBoard = examinationBoard;
 	}
 
 	public List<Vacancy> getVacancies() {
@@ -71,8 +72,11 @@ public class Database {
 		return users.get(username);
 	}
 	
-	private void initData() {
+	private void initData() throws BusinessException {
 		User user1 = new User(1, "user", "a", "secretary", null);
 		this.users.put(user1.getUserName(), user1);
+		
+		Vacancy vacancy = new Vacancy("titular", user1);
+		save(vacancy);
 	}
 }

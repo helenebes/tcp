@@ -1,8 +1,9 @@
 package contest.architecture;
 
-import contest.domain.Profile;
+import contest.domain.Vacancy;
+import contest.ui.graphic.action.BusinessException;
 
 public interface VacancyManagement {
 
-	public void createVacancy(Profile profile);
+	public Vacancy createVacancy(String profile, String username) throws BusinessException;
 }

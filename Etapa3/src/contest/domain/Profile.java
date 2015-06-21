@@ -1,8 +1,6 @@
 package contest.domain;
 
-public class Profile {
+public abstract class Profile {
 
-	public void getProfile() {
-		
-	}
+	public abstract String getProfile();
 }

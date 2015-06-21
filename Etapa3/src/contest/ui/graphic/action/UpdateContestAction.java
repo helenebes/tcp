@@ -1,7 +1,12 @@
 package contest.ui.graphic.action;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
 
+import javax.swing.Action;
+import javax.swing.KeyStroke;
+
+import contest.architecture.ContestManagementImpl;
 import contest.ui.graphic.impl.SystemGraphicInterface;
 
 public class UpdateContestAction extends SystemAction {
@@ -10,24 +15,18 @@ public class UpdateContestAction extends SystemAction {
 	 * 
 	 */
 
-	protected UpdateContestAction(SystemGraphicInterface contestInterface) {
+	public UpdateContestAction(SystemGraphicInterface contestInterface, ContestManagementImpl contestManagementImpl) {
 		super(contestInterface);
-		// TODO Auto-generated constructor stub
+		this.contestManagementImpl = contestManagementImpl;
+
+		super.putValue(Action.ACCELERATOR_KEY,
+				KeyStroke.getKeyStroke(KeyEvent.VK_D, ActionEvent.CTRL_MASK));
+		super.putValue(Action.NAME, "update contest");
 	}
+
+	private ContestManagementImpl contestManagementImpl;
 
 	public void execute() {
-		
-	}
-
-	@Override
-	public boolean isEnabled() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public void setEnabled(boolean status) {
-		// TODO Auto-generated method stub
 		
 	}
 
