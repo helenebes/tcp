@@ -2,18 +2,18 @@ package contest.architecture;
 
 import java.util.List;
 
-import contest.database.Database;
+import contest.domain.Database;
 import contest.domain.Contest;
 import contest.domain.Vacancy;
 
 public class ContestManagementImpl implements ContestManagement {
 
-	private Database database;
+	private contest.database.Database database;
 	
 	private List<Contest> concursos;
 	
-	public ContestManagementImpl(Database database) {
-		this.database = database;
+	public ContestManagementImpl(contest.database.Database database2) {
+		this.database = database2;
 	}
 	
 	public void createConcurso(String title, List<String> fiel) {
