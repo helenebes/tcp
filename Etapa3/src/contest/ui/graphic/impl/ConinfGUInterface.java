@@ -1,8 +1,11 @@
 package contest.ui.graphic.impl;
 
-public class ConinfGUInterface extends SystemGraphicInterface {
+import contest.architecture.UserManagementImpl;
 
-	public void createAndShowUI() {
-		
+public class ConinfGUInterface extends SystemGraphicInterface {
+	
+	public ConinfGUInterface(UserManagementImpl userManagement) {
+		super(userManagement);
+		// TODO Auto-generated constructor stub
 	}
 }

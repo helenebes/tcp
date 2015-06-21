@@ -4,7 +4,7 @@ public interface UIAction {
 
 	public void execute();
 	
-	public void isEnabled();
+	public boolean isEnabled();
 	
 	public void setEnabled(boolean status);
 }

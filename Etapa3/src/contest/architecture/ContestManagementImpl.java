@@ -12,6 +12,10 @@ public class ContestManagementImpl implements ContestManagement {
 	
 	private List<Contest> concursos;
 	
+	public ContestManagementImpl(Database database) {
+		this.database = database;
+	}
+	
 	public void createConcurso(String title, List<String> fiel) {
 		
 	}

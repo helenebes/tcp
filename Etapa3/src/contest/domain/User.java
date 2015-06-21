@@ -2,13 +2,23 @@ package contest.domain;
 
 import java.util.List;
 
-public class User extends Person{
+public class User extends Person implements Credentials{
 
 	private int id;
 	private String userName;
 	private String password;
 	private String role;
 	private List<Person> affiliation;
+	
+	public User(int id, String userName, String password, String role,
+			List<Person> affiliation) {
+		super();
+		this.id = id;
+		this.userName = userName;
+		this.password = password;
+		this.role = role;
+		this.affiliation = affiliation;
+	}
 	
 	public int getId() {
 		return id;
@@ -24,10 +34,6 @@ public class User extends Person{
 	}
 	public List<Person> getAffiliation() {
 		return affiliation;
-	}
-	
-	public void User() {
-		
 	}
 	
 }
