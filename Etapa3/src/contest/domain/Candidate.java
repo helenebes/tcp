@@ -7,6 +7,12 @@ public class Candidate extends Person {
 	private CurriculumVitae curriculumVitae;
 	private float finalGrade;
 	
+	public Candidate(String email, CurriculumVitae curriculumVitae, int id) {
+		this.id = id;
+		this.email = email;
+		this.curriculumVitae = curriculumVitae;
+	}
+	
 	
 	public int getId() {
 		return id;
@@ -19,6 +25,10 @@ public class Candidate extends Person {
 	}
 	public float getFinalGrade() {
 		return finalGrade;
+	}
+	
+	public void setFinalGrade(float finalGrade) {
+		this.finalGrade = finalGrade;
 	}
 	
 	
