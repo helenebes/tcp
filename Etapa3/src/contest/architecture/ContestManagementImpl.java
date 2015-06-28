@@ -27,7 +27,7 @@ public class ContestManagementImpl implements ContestManagement {
 	}
 	
 	public void updateContestData(Object data, Contest contest) {
-		
+		//contest.setContestData(date);
 	}
 	
 	public void closeContest(Contest contest){

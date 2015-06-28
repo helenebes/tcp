@@ -18,10 +18,8 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import contest.architecture.UserManagementImpl;
-import contest.ui.graphic.action.LogoutAction;
 import contest.ui.graphic.action.SystemAction;
 import contest.ui.graphic.action.ExitAction;
-import contest.ui.graphic.action.UserLoginAction;
 
 public abstract class SystemGraphicInterface extends SystemInterface {
 	
@@ -66,7 +64,12 @@ public abstract class SystemGraphicInterface extends SystemInterface {
 	}	
 	
 	public void createAndShowUI() {
-		frame.setTitle("System");
+		if(this.toString().contains("DeptBoss"))
+			frame.setTitle("System Head of Departement"); 
+		else if(this.toString().contains("Coninf"))
+			frame.setTitle("System CONINF");
+		else if(this.toString().contains("DeptSec"))
+			frame.setTitle("System INA Secretary");
 		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frame.addWindowListener(new WindowHandler());
 		frame.setVisible(false);
