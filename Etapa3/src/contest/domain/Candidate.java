@@ -7,7 +7,8 @@ public class Candidate extends Person {
 	private CurriculumVitae curriculumVitae;
 	private float finalGrade;
 	
-	public Candidate(String email, CurriculumVitae curriculumVitae, int id) {
+	public Candidate(String lastName, String firstName, String email, CurriculumVitae curriculumVitae, int id) {
+		super(lastName, firstName);
 		this.id = id;
 		this.email = email;
 		this.curriculumVitae = curriculumVitae;

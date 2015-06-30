@@ -73,7 +73,7 @@ public class Database {
 	}
 	
 	private void initData() throws BusinessException {
-		User user1 = new User(1, "user", "a", "secretary", null);
+		User user1 = new User("Silva", "guilherme", 1, "user", "a", "secretary", null);
 		this.users.put(user1.getUserName(), user1);
 		
 		Vacancy vacancy = new Vacancy("titular", user1);

@@ -10,9 +10,9 @@ public class User extends Person implements Credentials{
 	private String role;
 	private List<Person> affiliation;
 	
-	public User(int id, String userName, String password, String role,
+	public User(String lastName, String firstName, int id, String userName, String password, String role,
 			List<Person> affiliation) {
-		super();
+		super(lastName, firstName);
 		this.id = id;
 		this.userName = userName;
 		this.password = password;
