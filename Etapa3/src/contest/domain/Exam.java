@@ -1,31 +1,33 @@
 package contest.domain;
 
+import contest.ui.graphic.action.BusinessException;
+
 public class Exam {
 	
 	private Document writtenTest;
-	private String type;
-	/*private enum type {
-		DIDATICA("didatica"), ESCRITA("escrita"), MEMORIAL("Defesa de Memorial"), CV("Analise de CV"), PESQUISA("Plano de pesquisa"); 
-		private String testType; 
-        private type(String type) { 
-            this.testType = type; 
-        } 
-         
-        public String toString(){ 
-            return testType; 
-        } 		
-	};*/
+	private enum Type {DIDATICA , ESCRITA, MEMORIAL, CV, PESQUISA};
+	private Type examType;
 	
-	public Exam(String type) {
-		this.type = type;
+	public Exam(String type) throws BusinessException {
+		if(type.contains("didatica")) {
+			examType = Type.DIDATICA;
+		} else if (type.contains("escrita")) {
+			examType = Type.ESCRITA;
+		} else if (type.contains("cv")) {
+			 examType = Type.CV;
+		} else if (type.contains("pesquisa")) {
+			examType = Type.PESQUISA;
+		} else {
+			throw new BusinessException("problem of type of exam");
+		}
 	}
 
 	public String getType() {
-		return type;
+		return examType.toString();
 	}
 	
 	public boolean isWritten() {
-		if (type.contains("escrita"))
+		if (examType.toString().equals("ESCRITA"))
 			return true;
 		return false;
 	}

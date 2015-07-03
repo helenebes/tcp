@@ -6,9 +6,7 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import contest.domain.Assistente;
 import contest.domain.Contest;
-import contest.domain.Profile;
 import contest.domain.User;
 import contest.domain.Vacancy;
 

@@ -6,8 +6,14 @@ public abstract class Status {
 	private String justification;
 	private String status;
 	
+	public Status(String status, String justification) {
+		this.status = status;
+		this.justification = justification;
+	}
+	
 	public Status(String status) {
 		this.status = status;
+		this.justification = "";
 	}
 	
 	public boolean isRejected() {
