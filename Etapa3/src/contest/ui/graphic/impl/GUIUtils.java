@@ -42,7 +42,7 @@ public class GUIUtils {
 	}
 
 	public void showMessage(JFrame owner, String key, String[] args, int type) {
-		showMessage("application.title", owner, key, args, type);
+		showMessage("contest system", owner, key, args, type);
 	}
 
 	public void showMessage(String title, JFrame owner, String key, int type) {
@@ -63,7 +63,7 @@ public class GUIUtils {
 	
 	public boolean checkMandatory(JFrame owner, Object obj, String fieldName) {
 		if (obj == null) {
-			showMessage(owner, "exception.field.mandatory",
+			showMessage(owner, "all the fields are obligatory",
 					new String[] { fieldName }, JOptionPane.WARNING_MESSAGE);
 			return false;
 		}
@@ -73,7 +73,7 @@ public class GUIUtils {
 	public boolean checkMandatoryString(JFrame owner, String str,
 			String fieldName) {
 		if (str == null || "".equals(str)) {
-			showMessage(owner, "exception.field.mandatory",
+			showMessage(owner, "all the fields are obligatory",
 					new String[] { fieldName }, JOptionPane.WARNING_MESSAGE);
 			return false;
 		}

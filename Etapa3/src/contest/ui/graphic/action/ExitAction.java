@@ -10,6 +10,10 @@ import contest.ui.graphic.impl.SystemGraphicInterface;
 
 public class ExitAction extends SystemAction {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1445209112241558065L;
 	private LogoutAction logoutAction;
 	
 	public ExitAction(SystemGraphicInterface contestInterface, LogoutAction logoutAction) {

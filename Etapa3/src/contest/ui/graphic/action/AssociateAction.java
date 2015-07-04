@@ -6,6 +6,8 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.Action;
@@ -48,13 +50,7 @@ public class AssociateAction extends SystemAction{
 	}
 	
 	public void execute() {
-		vacancies = contestManagementImpl.getAllVacancies();
-		contests = contestManagementImpl.getAllContests();
-		
-		if(vacancies.isEmpty()) {
-			GUIUtils.INSTANCE.showMessage(contestInterface.getFrame(),
-					"no vacancy", JOptionPane.INFORMATION_MESSAGE);
-		}
+		contests = contestManagementImpl.getAllContestsNotClosed();
 		
 		if(contests.isEmpty()) {
 			GUIUtils.INSTANCE.showMessage(contestInterface.getFrame(),
@@ -64,7 +60,7 @@ public class AssociateAction extends SystemAction{
 		JPanel panel = new JPanel(new BorderLayout());
 		panel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 
-		JPanel subpanel = new JPanel(new GridLayout(5, 2, 5, 5));
+		JPanel subpanel = new JPanel(new GridLayout(2, 2, 5, 5));
 
 		String[] contestList = new String[contests.size()];
 		int indiceContestList = 0;
@@ -73,8 +69,59 @@ public class AssociateAction extends SystemAction{
 			indiceContestList++;
 		}
 		contest = new JComboBox<>(contestList);
-		subpanel.add(new JLabel("contest :"));
+		subpanel.add(new JLabel("Select the contest :"));
 		subpanel.add(contest);
+
+		panel.add(subpanel, BorderLayout.CENTER);
+
+		subpanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+		JButton ok = new JButton("next");
+		ok.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				associateVacancy();
+			}
+		});
+		subpanel.add(ok);
+		panel.add(subpanel, BorderLayout.SOUTH);
+
+		this.dialog = GUIUtils.INSTANCE.createDialog(contestInterface.getFrame(),
+				"Association vacancy contest", panel);
+		this.dialog.setVisible(true);
+	}
+	
+
+	private void associateVacancy() {
+		
+		dialog.dispose();
+		
+		int positionContest = Integer.parseInt(contest.getSelectedItem().toString().substring(0,1));
+		Contest contestSelected = contests.get(positionContest);
+		if(!contestSelected.getVacancies().isEmpty()) {
+			vacancies = new ArrayList<Vacancy>();
+			Iterator<Vacancy> iteratorVacancy = contestSelected.getVacancies().iterator();
+			Vacancy firstVacancy = iteratorVacancy.next();
+			List<Vacancy> allVacancies = contestManagementImpl.getAllVacancies();
+			for (Vacancy vacancy : allVacancies) {
+				if(vacancy.getProfile().getProfile().equals(firstVacancy.getProfile().getProfile()))
+					vacancies.add(vacancy);
+					vacancies.remove(firstVacancy);
+					while(iteratorVacancy.hasNext()) {
+						vacancies.remove(iteratorVacancy.next());
+					}
+			}
+		} else {
+			vacancies = contestManagementImpl.getAllVacancies();
+		}
+		if(vacancies.isEmpty()) {
+			GUIUtils.INSTANCE.showMessage(contestInterface.getFrame(),
+					"no vacancy", JOptionPane.INFORMATION_MESSAGE);
+		}
+		
+		JPanel panel = new JPanel(new BorderLayout());
+		panel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+
+		JPanel subpanel = new JPanel(new GridLayout(2, 2, 5, 5));
 		
 		String[] vacancyList = new String[vacancies.size()];
 		int indiceVacancyList = 0;
@@ -83,7 +130,7 @@ public class AssociateAction extends SystemAction{
 			indiceVacancyList++;
 		}
 		vacancy = new JComboBox<>(vacancyList);
-		subpanel.add(new JLabel("vacancy :"));
+		subpanel.add(new JLabel("Select the vacancy :"));
 		subpanel.add(vacancy);
 
 		panel.add(subpanel, BorderLayout.CENTER);
@@ -104,7 +151,7 @@ public class AssociateAction extends SystemAction{
 		this.dialog.setVisible(true);
 	}
 	
-	public void associate() {
+	private void associate() {
 		try {
 			int positionContest = Integer.parseInt(contest.getSelectedItem().toString().substring(0,1));
 			Contest contestSelected = contests.get(positionContest);

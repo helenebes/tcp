@@ -1,5 +1,6 @@
 package contest.architecture;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import contest.database.Database;
@@ -50,8 +51,14 @@ public class ContestManagementImpl implements ContestManagement {
 		return false;
 	}
 	
-	public List<Contest> getAllContests() {
-		return database.getContests();
+	public List<Contest> getAllContestsNotClosed() {
+		List<Contest> contests = new ArrayList<Contest>();
+		for (Contest contest : database.getContests()) {
+			if(!contest.getStatusLog().contains(new WithoutProtocol("closed"))) {
+				contests.add(contest);
+			} 				
+		}
+		return contests;
 	}
 	
 	public List<Vacancy> getAllVacancies() {

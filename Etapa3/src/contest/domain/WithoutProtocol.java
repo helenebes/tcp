@@ -6,6 +6,4 @@ public class WithoutProtocol extends Status {
 		super(status);
 	}
 
-	private enum type {};
-
 }

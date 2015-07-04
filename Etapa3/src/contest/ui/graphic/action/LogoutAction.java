@@ -11,6 +11,11 @@ import contest.ui.graphic.impl.SystemGraphicInterface;
 
 public class LogoutAction extends SystemAction {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8882123437908505812L;
+
 	public LogoutAction(SystemGraphicInterface contestInterface) {
 		super(contestInterface);
 		// TODO Auto-generated constructor stub

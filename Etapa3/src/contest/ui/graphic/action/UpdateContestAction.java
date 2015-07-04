@@ -6,7 +6,6 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.Action;
@@ -22,7 +21,6 @@ import javax.swing.KeyStroke;
 
 import contest.architecture.ContestManagementImpl;
 import contest.domain.Contest;
-import contest.domain.Vacancy;
 import contest.ui.graphic.impl.GUIUtils;
 import contest.ui.graphic.impl.SystemGraphicInterface;
 
@@ -49,7 +47,7 @@ public class UpdateContestAction extends SystemAction {
 	}
 
 	public void execute() {
-		contests = contestManagementImpl.getAllContests();
+		contests = contestManagementImpl.getAllContestsNotClosed();
 		
 		if(contests.isEmpty()) {
 			GUIUtils.INSTANCE.showMessage(contestInterface.getFrame(),

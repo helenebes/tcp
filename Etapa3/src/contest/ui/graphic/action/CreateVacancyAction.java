@@ -50,14 +50,14 @@ public class CreateVacancyAction extends SystemAction {
 		JPanel panel = new JPanel(new BorderLayout());
 		panel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 
-		JPanel subpanel = new JPanel(new GridLayout(5, 2, 5, 5));
+		JPanel subpanel = new JPanel(new GridLayout(2, 2, 5, 5));
 
 		this.username = new JTextField();
 		username.setColumns(10);
-		subpanel.add(new JLabel("userName"));
+		subpanel.add(new JLabel("userName of the last occupant :"));
 		subpanel.add(username);
 
-		String[] profileType = new String[]{"titular", "adjunct", "assistente", "auxiliarky"};
+		String[] profileType = new String[]{"titular", "adjunct", "assistente", "auxiliarly"};
 		profile = new JComboBox<>(profileType);
 		subpanel.add(new JLabel("profile :"));
 		subpanel.add(profile);
@@ -91,7 +91,9 @@ public class CreateVacancyAction extends SystemAction {
 			
 			StringBuffer sb = new StringBuffer();
 			sb.append("successful operation").append("\n");
-			sb.append("username : ").append(vacancy.getVacancyPreviousRecord().getUserName()).append("\n");
+			sb.append("last occupant of the job : ").append(vacancy.getVacancyPreviousRecord().getLastName()).append(" ");
+			sb.append(vacancy.getVacancyPreviousRecord().getFirstName());
+			sb.append("\n");
 			sb.append("profile : ").append(vacancy.getProfile().getProfile()).append("\n");
 			
 			GUIUtils.INSTANCE.showMessage(contestInterface.getFrame(),

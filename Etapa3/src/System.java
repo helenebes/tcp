@@ -6,6 +6,8 @@ import contest.architecture.UserManagementImpl;
 import contest.architecture.VacancyManagementImpl;
 import contest.database.Database;
 import contest.ui.graphic.action.BusinessException;
+import contest.ui.graphic.impl.ConinfGUInterface;
+import contest.ui.graphic.impl.DeptBossGUInterface;
 import contest.ui.graphic.impl.DeptSecretaryINAGUInterface;
 import contest.ui.graphic.impl.SystemInterface;
 
@@ -21,8 +23,8 @@ public class System {
 		
 		List<SystemInterface> systemInterfaces = new ArrayList<>(3);
 		
-		//systemInterfaces.add(new ConinfGUInterface(userManagement, vacancyManagement, contestManagement));
-		//systemInterfaces.add(new DeptBossGUInterface(userManagement, vacancyManagement, contestManagement));
+		systemInterfaces.add(new ConinfGUInterface(userManagement, vacancyManagement, contestManagement));
+		systemInterfaces.add(new DeptBossGUInterface(userManagement, vacancyManagement, contestManagement));
 		systemInterfaces.add(new DeptSecretaryINAGUInterface(userManagement, vacancyManagement, contestManagement));
 		
 		for(SystemInterface systemInterface : systemInterfaces) {

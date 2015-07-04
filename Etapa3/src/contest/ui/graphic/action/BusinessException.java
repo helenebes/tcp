@@ -2,6 +2,10 @@ package contest.ui.graphic.action;
 
 public class BusinessException extends Exception {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2576671476175378777L;
 	private String[] args;
 
 	/**

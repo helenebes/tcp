@@ -45,7 +45,7 @@ public class CloseContestAction extends SystemAction{
 	private JComboBox<String> contest;
 	
 	public void execute() {
-		contests = contestManagementImpl.getAllContests();
+		contests = contestManagementImpl.getAllContestsNotClosed();
 		
 		if(contests.isEmpty()) {
 			GUIUtils.INSTANCE.showMessage(contestInterface.getFrame(),
@@ -55,7 +55,7 @@ public class CloseContestAction extends SystemAction{
 		JPanel panel = new JPanel(new BorderLayout());
 		panel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 
-		JPanel subpanel = new JPanel(new GridLayout(5, 2, 5, 5));
+		JPanel subpanel = new JPanel(new GridLayout(1, 2, 5, 5));
 
 		String[] contestList = new String[contests.size()];
 		int indiceContestList = 0;
@@ -64,7 +64,7 @@ public class CloseContestAction extends SystemAction{
 			indiceContestList++;
 		}
 		contest = new JComboBox<>(contestList);
-		subpanel.add(new JLabel("contest :"));
+		subpanel.add(new JLabel("Select the contest to close :"));
 		subpanel.add(contest);
 
 		panel.add(subpanel, BorderLayout.CENTER);
@@ -85,7 +85,7 @@ public class CloseContestAction extends SystemAction{
 		this.dialog.setVisible(true);
 	}
 	
-	public void closeContest() {
+	private void closeContest() {
 		try {
 			int positionContest = Integer.parseInt(contest.getSelectedItem().toString().substring(0,1));
 			Contest contestSelected = contests.get(positionContest);
