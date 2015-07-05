@@ -51,38 +51,39 @@ public class CloseContestAction extends SystemAction{
 			GUIUtils.INSTANCE.showMessage(contestInterface.getFrame(),
 					"no contest", JOptionPane.INFORMATION_MESSAGE);
 		}
-		
-		JPanel panel = new JPanel(new BorderLayout());
-		panel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-
-		JPanel subpanel = new JPanel(new GridLayout(1, 2, 5, 5));
-
-		String[] contestList = new String[contests.size()];
-		int indiceContestList = 0;
-		for(Contest contest : contests) {
-			contestList[indiceContestList] = indiceContestList+ " - " + contest.getContestTitle();
-			indiceContestList++;
-		}
-		contest = new JComboBox<>(contestList);
-		subpanel.add(new JLabel("Select the contest to close :"));
-		subpanel.add(contest);
-
-		panel.add(subpanel, BorderLayout.CENTER);
-
-		subpanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-		JButton ok = new JButton("ok");
-		ok.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				closeContest();
+		else {
+			JPanel panel = new JPanel(new BorderLayout());
+			panel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+	
+			JPanel subpanel = new JPanel(new GridLayout(1, 2, 5, 5));
+	
+			String[] contestList = new String[contests.size()];
+			int indiceContestList = 0;
+			for(Contest contest : contests) {
+				contestList[indiceContestList] = indiceContestList+ " - " + contest.getContestTitle();
+				indiceContestList++;
 			}
-		});
-		subpanel.add(ok);
-		panel.add(subpanel, BorderLayout.SOUTH);
-
-		this.dialog = GUIUtils.INSTANCE.createDialog(contestInterface.getFrame(),
-				"Association vacancy contest", panel);
-		this.dialog.setVisible(true);
+			contest = new JComboBox<>(contestList);
+			subpanel.add(new JLabel("Select the contest to close :"));
+			subpanel.add(contest);
+	
+			panel.add(subpanel, BorderLayout.CENTER);
+	
+			subpanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+			JButton ok = new JButton("ok");
+			ok.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					closeContest();
+				}
+			});
+			subpanel.add(ok);
+			panel.add(subpanel, BorderLayout.SOUTH);
+	
+			this.dialog = GUIUtils.INSTANCE.createDialog(contestInterface.getFrame(),
+					"Close contest", panel);
+			this.dialog.setVisible(true);
+		}
 	}
 	
 	private void closeContest() {
@@ -95,7 +96,7 @@ public class CloseContestAction extends SystemAction{
 			StringBuffer sb = new StringBuffer();
 			sb.append("successful operation").append("\n");
 			sb.append("title : ").append(contestSelected.getContestTitle()).append("\n");
-			sb.append("beginnig : ").append(contestSelected.getStartDate().toString()).append("\n");
+			sb.append("beginning : ").append(contestSelected.getStartDate().toString()).append("\n");
 			
 			GUIUtils.INSTANCE.showMessage(contestInterface.getFrame(),
 					sb.toString(), JOptionPane.INFORMATION_MESSAGE);

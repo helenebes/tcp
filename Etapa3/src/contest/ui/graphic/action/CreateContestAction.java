@@ -57,7 +57,7 @@ public class CreateContestAction extends SystemAction {
 		JPanel panel = new JPanel(new BorderLayout());
 		panel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 
-		JPanel subpanel = new JPanel(new GridLayout(5, 2, 5, 5));
+		JPanel subpanel = new JPanel(new GridLayout(6, 2, 5, 5));
 		
 		this.title = new JTextField();
 		title.setColumns(10);
@@ -103,7 +103,7 @@ public class CreateContestAction extends SystemAction {
 		panel.add(subpanel, BorderLayout.SOUTH);
 
 		this.dialog = GUIUtils.INSTANCE.createDialog(contestInterface.getFrame(),
-				"creation vacancy", panel);
+				"creation contest", panel);
 		this.dialog.setVisible(true);
 	}
 	
