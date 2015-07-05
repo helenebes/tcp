@@ -95,8 +95,12 @@ public class Contest {
 		this.vacancies.add(vacancy);
 	}
 
-	public void setContestStatus(Status status) {
+	public void addContestStatus(Status status) {
 		this.statusLog.add(status);
+	}
+	
+	public void addExam(Exam exam) {
+		this.exams.add(exam);
 	}
 	
 }

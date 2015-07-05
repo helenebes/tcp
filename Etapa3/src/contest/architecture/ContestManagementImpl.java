@@ -32,7 +32,7 @@ public class ContestManagementImpl implements ContestManagement {
 	}
 	
 	public void closeContest(Contest contest){
-		contest.setContestStatus(new WithoutProtocol("closed"));
+		contest.addContestStatus(new WithoutProtocol("closed"));
 	}
 	
 	private boolean isFieldAvailable(List<String> fields) {
