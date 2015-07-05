@@ -83,7 +83,7 @@ public class CreateVacancyAction extends SystemAction {
 	public void createVacancy() {
 		try {			
 			if (!GUIUtils.INSTANCE.checkMandatoryString(
-					contestInterface.getFrame(), username.getText(), "firstName"))
+					contestInterface.getFrame(), username.getText(), "userName"))
 				return;
 
 

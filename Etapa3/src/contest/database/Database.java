@@ -73,13 +73,19 @@ public class Database {
 	}
 	
 	private void initData() throws BusinessException {
-		User user1 = new User("Silva", "guilherme", 1, "user", "a", "secretary", null);
+		User user1 = new User("Silva", "Guilherme", 1, "user", "a", "secretary", null);
 		this.users.put(user1.getUserName(), user1);
+		
+		User user2 = new User("Besancon", "Helene", 2, "helene", "b", "studant", null);
+		this.users.put(user1.getUserName(), user2);
+		
+		User user3 = new User("Silva", "Pedro", 3, "login", "c", "secretary", null);
+		this.users.put(user1.getUserName(), user3);
 		
 		Vacancy vacancy = new Vacancy("titular", user1);
 		save(vacancy);
 		
-		Contest contest1 = new Contest("title", new ArrayList<String>(), "20H");
+		Contest contest1 = new Contest("title", new ArrayList<String>(), "20H", "");
 		save(contest1);
 	}
 }

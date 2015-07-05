@@ -32,7 +32,7 @@ public class VacancyTest {
 	public void CheckContestTest() {
 		User previousRecord = new User("Silva", "guilherme", 1, "user", "password", "teacher", null);
 		vacancy = new Vacancy("assistente", previousRecord);
-		Contest contest = new Contest("title", new ArrayList<String>(), "20H");
+		Contest contest = new Contest("title", new ArrayList<String>(), "20H", "");
 		vacancy.addContest(contest);
 		assertEquals(vacancy.getContest(), contest);
 	}

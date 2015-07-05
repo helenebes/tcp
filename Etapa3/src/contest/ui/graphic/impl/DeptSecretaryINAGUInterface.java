@@ -15,7 +15,6 @@ import contest.ui.graphic.action.UserLoginAction;
 public class DeptSecretaryINAGUInterface extends SystemGraphicInterface {
 
 	public DeptSecretaryINAGUInterface(UserManagementImpl userManagement, VacancyManagementImpl vacancyManagementImpl, ContestManagementImpl contestManagementImpl) {
-		super(userManagement);
 		
 		LogoutAction logoutAction = new LogoutAction(this);
 		ExitAction exitAction = new ExitAction(this, logoutAction);
@@ -31,5 +30,9 @@ public class DeptSecretaryINAGUInterface extends SystemGraphicInterface {
 		addPanelAction(new UpdateContestAction(this, contestManagementImpl));
 		addPanelAction(new CloseContestAction(this, contestManagementImpl));
 		
+	}
+	
+	public String toString() {
+		return "INA Secretary";
 	}
 }

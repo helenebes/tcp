@@ -15,7 +15,6 @@ import contest.ui.graphic.action.UserLoginAction;
 public class ConinfGUInterface extends SystemGraphicInterface {
 	
 	public ConinfGUInterface(UserManagementImpl userManagement, VacancyManagementImpl vacancyManagementImpl, ContestManagementImpl contestManagementImpl) {
-		super(userManagement);
 		
 		LogoutAction logoutAction = new LogoutAction(this);
 		ExitAction exitAction = new ExitAction(this, logoutAction);
@@ -30,5 +29,9 @@ public class ConinfGUInterface extends SystemGraphicInterface {
 		addPanelAction(new AssociateAction(this, contestManagementImpl));
 		addPanelAction(new UpdateContestAction(this, contestManagementImpl));
 		addPanelAction(new CloseContestAction(this, contestManagementImpl));
+	}
+	
+	public String toString() {
+		return "Coninf";
 	}
 }

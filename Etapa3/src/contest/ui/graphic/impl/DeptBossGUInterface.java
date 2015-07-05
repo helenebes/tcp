@@ -15,7 +15,6 @@ import contest.ui.graphic.action.UserLoginAction;
 public class DeptBossGUInterface extends SystemGraphicInterface {
 
 	public DeptBossGUInterface(UserManagementImpl userManagement, VacancyManagementImpl vacancyManagementImpl, ContestManagementImpl contestManagementImpl) {
-		super(userManagement);
 
 		LogoutAction logoutAction = new LogoutAction(this);
 		ExitAction exitAction = new ExitAction(this, logoutAction);
@@ -30,6 +29,10 @@ public class DeptBossGUInterface extends SystemGraphicInterface {
 		addPanelAction(new AssociateAction(this, contestManagementImpl));
 		addPanelAction(new UpdateContestAction(this, contestManagementImpl));
 		addPanelAction(new CloseContestAction(this, contestManagementImpl));
+	}
+	
+	public String toString() {
+		return "Head of Department";
 	}
 
 }

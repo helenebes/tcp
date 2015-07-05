@@ -16,8 +16,8 @@ public class ContestManagementImpl implements ContestManagement {
 		this.database = database;
 	}
 	
-	public Contest createContest(String title, List<String> fields, String workRegime) {
-		Contest contest = new Contest(title, fields, workRegime);
+	public Contest createContest(String title, List<String> fields, String workRegime, String program) {
+		Contest contest = new Contest(title, fields, workRegime, program);
 		database.save(contest);
 		return contest;
 	}

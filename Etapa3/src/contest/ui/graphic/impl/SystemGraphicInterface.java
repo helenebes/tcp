@@ -17,7 +17,6 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
-import contest.architecture.UserManagementImpl;
 import contest.ui.graphic.action.SystemAction;
 import contest.ui.graphic.action.ExitAction;
 
@@ -37,10 +36,8 @@ public abstract class SystemGraphicInterface extends SystemInterface {
 	private final JMenu mainMenu;
 	private final JMenuBar menu;
 	private final JPanel panel;
-	private UserManagementImpl userManagement;
 	
-	public SystemGraphicInterface(UserManagementImpl userManagement) {
-		this.userManagement = userManagement;
+	public SystemGraphicInterface() {
 		this.frame = new JFrame();
 		this.menu = new JMenuBar();
 		this.mainMenu = new JMenu("System");
@@ -64,12 +61,7 @@ public abstract class SystemGraphicInterface extends SystemInterface {
 	}	
 	
 	public void createAndShowUI() {
-		if(this.toString().contains("DeptBoss"))
-			frame.setTitle("System Head of Departement"); 
-		else if(this.toString().contains("Coninf"))
-			frame.setTitle("System CONINF");
-		else if(this.toString().contains("DeptSec"))
-			frame.setTitle("System INA Secretary");
+		frame.setTitle(this.toString());
 		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frame.addWindowListener(new WindowHandler());
 		frame.setVisible(false);

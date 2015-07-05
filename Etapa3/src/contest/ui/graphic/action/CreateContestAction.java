@@ -48,6 +48,7 @@ public class CreateContestAction extends SystemAction {
 	private JTextField field1;
 	private JTextField field2;
 	private JTextField field3;
+	private JTextField program;
 	private List<String> fieldList;
 	private JDialog dialog;
 		
@@ -60,7 +61,7 @@ public class CreateContestAction extends SystemAction {
 		
 		this.title = new JTextField();
 		title.setColumns(10);
-		subpanel.add(new JLabel("title"));
+		subpanel.add(new JLabel("title :"));
 		subpanel.add(title);
 		
 		String[] workRegimeType = new String[]{"20H", "40H", "DE"};
@@ -70,18 +71,23 @@ public class CreateContestAction extends SystemAction {
 
 		this.field1 = new JTextField();
 		field1.setColumns(10);
-		subpanel.add(new JLabel("field1"));
+		subpanel.add(new JLabel("field1 :"));
 		subpanel.add(field1);
 		
 		this.field2 = new JTextField();
 		field2.setColumns(10);
-		subpanel.add(new JLabel("field2"));
+		subpanel.add(new JLabel("field2 :"));
 		subpanel.add(field2);
 		
 		this.field3 = new JTextField();
 		field3.setColumns(10);
-		subpanel.add(new JLabel("field3"));
+		subpanel.add(new JLabel("field3 :"));
 		subpanel.add(field3);
+		
+		this.program = new JTextField();
+		program.setColumns(10);
+		subpanel.add(new JLabel("program :"));
+		subpanel.add(program);
 
 		panel.add(subpanel, BorderLayout.CENTER);
 
@@ -109,6 +115,9 @@ public class CreateContestAction extends SystemAction {
 			if (!GUIUtils.INSTANCE.checkMandatoryString(
 					contestInterface.getFrame(), field1.getText(), "field1"))
 				return;
+			if (!GUIUtils.INSTANCE.checkMandatoryString(
+					contestInterface.getFrame(),program.getText(), "program"))
+				return;
 			
 			fieldList.add(field1.getText());
 			if(!field2.getText().isEmpty())
@@ -116,7 +125,7 @@ public class CreateContestAction extends SystemAction {
 			if(!field3.getText().isEmpty())
 				fieldList.add(field3.getText());
 
-			Contest contest = contestManagementImpl.createContest(title.getText(), fieldList, workRegime.getSelectedItem().toString());
+			Contest contest = contestManagementImpl.createContest(title.getText(), fieldList, workRegime.getSelectedItem().toString(), program.getText());
 			
 			StringBuffer sb = new StringBuffer();
 			sb.append("successful operation").append("\n");

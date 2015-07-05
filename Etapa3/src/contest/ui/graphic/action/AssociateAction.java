@@ -126,7 +126,7 @@ public class AssociateAction extends SystemAction{
 		String[] vacancyList = new String[vacancies.size()];
 		int indiceVacancyList = 0;
 		for(Vacancy vacancy : vacancies) {
-			vacancyList[indiceVacancyList] = indiceVacancyList+ " - " + vacancy.getProfile().getProfile();
+			vacancyList[indiceVacancyList] = indiceVacancyList+ " - profile : " + vacancy.getProfile().getProfile() + " / last user : " + vacancy.getVacancyPreviousRecord().getLastName();
 			indiceVacancyList++;
 		}
 		vacancy = new JComboBox<>(vacancyList);
