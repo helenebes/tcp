@@ -88,7 +88,7 @@ public class UserLoginAction extends SystemAction{
 			User user = userManagement.login(
 					username.getText(), new String(password.getPassword()));
 			contestInterface.login(user);
-			if (contestInterface.toString().contains("Dept")) {
+			if (!contestInterface.toString().contains("Coninf")) {
 				warnCurrentVacancies();
 				warnRejection();
 			}
