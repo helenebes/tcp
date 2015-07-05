@@ -102,33 +102,4 @@ public class Contest {
 	public void addExam(Exam exam) {
 		this.exams.add(exam);
 	}
-	
-	//update's below.. ok?
-	public Status updateStatus(Status status){
-		return status;
-	}
-	
-	public Document updateResultSpreadsheet(Document resultSpreadsheet){
-		return resultSpreadsheet;
-	}
-	
-	public Document updateDoc(Document document){
-		return document;
-	}
-	
-	public void updateExaminationBoard(){
-		
-	}
-	
-	public void updateModalityTest(){
-		
-	}
-	
-	public void updateSchedule(){
-		
-	}
-	
-	public void updateRecord(){
-		
-	}
 }
