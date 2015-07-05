@@ -1,10 +1,12 @@
 package contest.architecture;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import contest.database.Database;
 import contest.domain.Contest;
+import contest.domain.Status;
 import contest.domain.Vacancy;
 import contest.domain.WithoutProtocol;
 
@@ -53,10 +55,16 @@ public class ContestManagementImpl implements ContestManagement {
 	
 	public List<Contest> getAllContestsNotClosed() {
 		List<Contest> contests = new ArrayList<Contest>();
+		Boolean isclosed = false;
 		for (Contest contest : database.getContests()) {
-			if(!contest.getStatusLog().contains(new WithoutProtocol("closed"))) {
+			Iterator<Status> statusIterator = contest.getStatusLog().iterator();
+			while(statusIterator.hasNext()) {
+				if (statusIterator.next().getStatus().contains("closed"))
+					isclosed = true;
+			}
+			if (!isclosed)
 				contests.add(contest);
-			} 				
+			isclosed = false;			
 		}
 		return contests;
 	}

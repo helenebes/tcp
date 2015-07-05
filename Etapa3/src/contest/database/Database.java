@@ -77,10 +77,10 @@ public class Database {
 		this.users.put(user1.getUserName(), user1);
 		
 		User user2 = new User("Besancon", "Helene", 2, "helene", "b", "studant", null);
-		this.users.put(user1.getUserName(), user2);
+		this.users.put(user2.getUserName(), user2);
 		
 		User user3 = new User("Silva", "Pedro", 3, "login", "c", "secretary", null);
-		this.users.put(user1.getUserName(), user3);
+		this.users.put(user3.getUserName(), user3);
 		
 		Vacancy vacancy = new Vacancy("titular", user1);
 		save(vacancy);
